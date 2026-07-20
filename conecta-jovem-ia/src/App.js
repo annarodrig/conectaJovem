@@ -3,23 +3,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, collection, addDoc, onSnapshot } from 'firebase/firestore';
 
-// ==========================================
-// CONFIGURAÇÕES GLOBAIS E FIREBASE
-// ==========================================
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'conecta-jovem-ia';
-let db = null;
-let auth = null;
-
-try {
-  if (typeof __firebase_config !== 'undefined') {
-    const firebaseConfig = JSON.parse(__firebase_config);
-    const app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-  }
-} catch (e) {
-  console.error("Firebase initialization skipped or failed:", e);
-}
 
 // ==========================================
 // ÍCONES CUSTOMIZADOS (SVG inline para maior performance e compatibilidade)
